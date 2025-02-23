@@ -1,0 +1,438 @@
+/* Base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    background-color: #0d0d0d;
+    font-family: Arial, sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-container {
+    width: 95vw;
+    max-width: 600px;
+    background-color: #1a1a1a;
+    border: 2px solid #333;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+/* Banner styles */
+.banner {
+    background: url('https://media0.giphy.com/media/lKaeQAunM3hZaqsOpj/giphy.gif') no-repeat center/cover;
+    width: 115%;
+    height: 250px;
+    position: relative;
+    left: -7.5%;
+}
+
+/* Profile header styles */
+.profile-header {
+    position: absolute;
+    top: 105px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    background: url('https://edge-cdn-forummatrpru.matrp.ru/data/avatars/o/165/165267.jpg') no-repeat center/cover;
+    border-radius: 50%;
+    border: 5px solid black;
+    margin-top: -18px;
+}
+
+.nickname {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(45deg, #FF4500, #FFD700);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradient 3s ease infinite;
+    background-size: 200% 200%;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.gradient-controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.color-input {
+    flex: 1;
+}
+
+.color-input label {
+    display: block;
+    margin-bottom: 3px;
+    font-size: 12px;
+}
+
+/* Roles styles */
+.roles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.role {
+    width: 100%;
+    text-align: center;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+    white-space: nowrap;
+    background-size: 200% 200%;
+    animation: gradient 3s ease infinite;
+}
+
+.role:nth-child(1) {
+    background-image: linear-gradient(45deg, #808080, #a0a0a0);
+    color: white;
+}
+
+.role:nth-child(2) {
+    background-image: linear-gradient(45deg, #FF4500, #FF7F50);
+    color: white;
+}
+
+.role:nth-child(3) {
+    background-image: linear-gradient(45deg, #32CD32, #90EE90);
+    color: white;
+}
+
+.role:nth-child(4) {
+    background-image: linear-gradient(45deg, #9400D3, #DA70D6);
+    color: white;
+}
+
+.role:nth-child(5) {
+    background-image: linear-gradient(45deg, #FFD700, #FFA500);
+    color: black;
+}
+
+.role:hover {
+    transform: scale(1.05);
+}
+
+/* Info section styles */
+.info {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 14px;
+    border-radius: 10px;
+    margin: 46px 20px 10px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.info p {
+    margin: 6px 0;
+}
+
+/* Editor styles */
+.code-input-container {
+    position: fixed;
+    bottom: 20px;
+    right: -220px;
+    transition: right 0.3s ease-in-out;
+}
+
+.code-input-container.open {
+    right: 20px;
+}
+
+.toggle-input-btn {
+    position: absolute;
+    left: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #1a1a1a;
+    border: none;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px 0 0 5px;
+    cursor: pointer;
+}
+
+.code-input {
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: 2px solid #000;
+    background: #000;
+    color: white;
+    font-size: 16px;
+    width: 200px;
+    transition: all 0.3s;
+}
+
+.code-input:focus {
+    outline: none;
+    border-color: #333;
+    width: 250px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.editor-panel {
+    position: fixed;
+    right: -350px;
+    top: 0;
+    width: 350px;
+    height: 100vh;
+    background-color: #1a1a1a;
+    border-left: 2px solid #333;
+    transition: right 0.3s ease-in-out;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.editor-panel.open {
+    right: 0;
+}
+
+.editor-header {
+    position: sticky;
+    top: 0;
+    background-color: #1a1a1a;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+    z-index: 2;
+}
+
+.editor-content {
+    padding: 20px;
+}
+
+.close-editor {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.edit-section {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #262626;
+    border-radius: 8px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #ccc;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 8px;
+    background-color: #333;
+    border: 1px solid #444;
+    border-radius: 4px;
+    color: white;
+    margin-bottom: 5px;
+}
+
+input[type="color"] {
+    width: 50px;
+    height: 30px;
+    padding: 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Редактор ролей */
+#rolesContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.role-item {
+    background-color: #333;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.role-item input[type="text"] {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.role-gradient-controls {
+    display: flex;
+    gap: 5px;
+    margin: 5px 0;
+}
+
+.role-item input[type="color"] {
+    width: 45%;
+    height: 25px;
+}
+
+.role-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.role-arrows {
+    display: flex;
+    gap: 5px;
+}
+
+.move-role {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.move-role:hover {
+    color: white;
+}
+
+.delete-role {
+    background: none;
+    border: none;
+    color: #ff4444;
+    cursor: pointer;
+}
+
+.add-role-btn {
+    width: 100%;
+    padding: 8px;
+    background-color: #FF4500;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+textarea#infoInput {
+    width: 100%;
+    min-height: 100px;
+    background-color: #333;
+    border: 1px solid #444;
+    border-radius: 4px;
+    color: white;
+    padding: 8px;
+    margin-top: 10px;
+    resize: vertical;
+}
+
+.editor-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.save-btn, .reset-btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.save-btn {
+    background-color: #FF4500;
+    color: white;
+}
+
+.reset-btn {
+    background-color: #333;
+    color: white;
+}
+
+/* Snowflake animation */
+@keyframes snowfall {
+    0% {
+        transform: translateY(-10vh) translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) translateX(20px);
+        opacity: 0;
+    }
+}
+
+.snowflake {
+    position: fixed;
+    top: -10px;
+    color: white;
+    font-size: 20px;
+    user-select: none;
+    z-index: 1000;
+    pointer-events: none;
+    animation: snowfall linear forwards;
+}
+
+/* Toast styles */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 1001;
+}
+
+.toast.show {
+    opacity: 1;
+}
