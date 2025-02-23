@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Профиль MQVON</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="profile-container">
+        <div class="banner"></div>
+        <div class="profile-header">
+            <div class="avatar">🫧</div>
+            <div class="nickname">MQVON</div>
+            <div class="roles">
+                <div class="role">роль 1</div>
+                <div class="role">роль 2</div>
+                <div class="role">роль 3</div>
+                <div class="role">роль 4</div>
+            </div>
+        </div>
+        <div class="info">
+            <p>Боец</p>
+            <p>ID: <strong>1688880140</strong></p>
+            <p>USERNAME: @MQVON</p>
+            <p><i>isizisiz</i></p>
+        </div>
+    </div>
+
+    <!-- Code Input -->
+    <div class="code-input-container">
+        <button class="toggle-input-btn">&lt;</button>
+        <input type="password" id="codeInput" class="code-input" placeholder="Введите код...">
+    </div>
+
+    <!-- Editor Panel -->
+    <div class="editor-panel">
+        <div class="editor-header">
+            <h2>Редактировать профиль</h2>
+            <button class="close-editor"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="editor-content">
+            <div class="edit-section">
+                <h3>Основная информация</h3>
+                <div class="input-group">
+                    <label>Никнейм:</label>
+                    <input type="text" id="nicknameInput" value="MQVON">
+                    <div class="gradient-controls">
+                        <div class="color-input">
+                            <label>Цвет 1:</label>
+                            <input type="color" id="nicknameColor1" value="#FF4500">
+                        </div>
+                        <div class="color-input">
+                            <label>Цвет 2:</label>
+                            <input type="color" id="nicknameColor2" value="#FFD700">
+                        </div>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>URL Баннера:</label>
+                    <input type="text" id="bannerInput" value="https://media0.giphy.com/media/lKaeQAunM3hZaqsOpj/giphy.gif">
+                </div>
+                <div class="input-group">
+                    <label>URL Аватара:</label>
+                    <input type="text" id="avatarInput" value="https://edge-cdn-forummatrpru.matrp.ru/data/avatars/o/165/165267.jpg">
+                </div>
+            </div>
+
+            <div class="edit-section">
+                <h3>Роли</h3>
+                <div id="rolesContainer"></div>
+                <button id="addRoleBtn" class="add-role-btn">
+                    <i class="fas fa-plus"></i> Добавить роль
+                </button>
+            </div>
+
+            <div class="edit-section">
+                <h3>Информация</h3>
+                <div class="input-group">
+                    <label>Отступ сверху (px):</label>
+                    <input type="number" id="infoMarginInput" min="0" max="200" step="1">
+                </div>
+                <textarea id="infoInput" rows="4" placeholder="Введите информацию (каждая строка - отдельный пункт)"></textarea>
+            </div>
+
+            <div class="edit-section">
+                <h3>Эффекты</h3>
+                <div class="input-group">
+                    <label>Падающий снег:</label>
+                    <input type="checkbox" id="snowToggle">
+                    <input type="text" id="snowEmoji" value="❄️" maxlength="2" placeholder="Эмодзи">
+                </div>
+            </div>
+
+            <div class="editor-actions">
+                <button id="saveChanges" class="save-btn">Сохранить изменения</button>
+                <button id="resetChanges" class="reset-btn">Сбросить</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="{{ url_for('static', filename='js/editor.js') }}"></script>
+</body>
+</html>
